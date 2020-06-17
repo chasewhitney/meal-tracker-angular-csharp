@@ -1,0 +1,6 @@
+appsettings.json
+ToDo.txt
+.vscode
+bin
+obj
+*.db
