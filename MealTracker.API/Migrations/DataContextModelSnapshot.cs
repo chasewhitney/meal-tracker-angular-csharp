@@ -16,6 +16,37 @@ namespace MealTracker.API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.0.1");
 
+            modelBuilder.Entity("MealTracker.API.Models.Favorite", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Calories")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Fat")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("NetCarbs")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Protein")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Favorites");
+                });
+
             modelBuilder.Entity("MealTracker.API.Models.Meal", b =>
                 {
                     b.Property<int>("Id")
@@ -45,6 +76,8 @@ namespace MealTracker.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Meals");
                 });
 
@@ -66,6 +99,24 @@ namespace MealTracker.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("MealTracker.API.Models.Favorite", b =>
+                {
+                    b.HasOne("MealTracker.API.Models.User", "User")
+                        .WithMany("Favorites")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MealTracker.API.Models.Meal", b =>
+                {
+                    b.HasOne("MealTracker.API.Models.User", "User")
+                        .WithMany("Meals")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

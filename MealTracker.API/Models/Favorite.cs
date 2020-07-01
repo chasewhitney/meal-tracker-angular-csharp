@@ -1,9 +1,7 @@
-using System;
-
 namespace MealTracker.API.Models
 {
-    public class Meal
-    {
+    public class Favorite
+    {       
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -16,10 +14,9 @@ namespace MealTracker.API.Models
 
         public int NetCarbs { get; set; }
 
-        public DateTime Date { get; set; }
-
         public User User { get; set; }
 
         public int UserId { get; set; }
+        
     }
 }
