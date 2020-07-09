@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using MealTracker.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MealTracker.API.Data
 {
@@ -18,6 +20,13 @@ namespace MealTracker.API.Data
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);
+        }
+
+        public async Task<Goal> GetGoals(int id)
+        {
+            var goals = await _context.Goals.FirstOrDefaultAsync(g => g.Id == id);
+
+            return goals;
         }
 
         public async Task<bool> SaveAll()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using MealTracker.API.Data;
 using MealTracker.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -37,7 +38,9 @@ namespace MealTracker.API
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddAutoMapper(typeof(TrackingRepository).Assembly);
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ITrackingRepository, TrackingRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
                 options.TokenValidationParameters  = new TokenValidationParameters
                 {

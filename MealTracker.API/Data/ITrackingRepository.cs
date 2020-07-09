@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using MealTracker.API.Models;
 
 namespace MealTracker.API.Data
 {
@@ -8,6 +9,7 @@ namespace MealTracker.API.Data
 
         void Delete<T>(T entity) where T: class;
 
+        Task<Goal> GetGoals(int id);
         Task<bool> SaveAll();
     }
 }

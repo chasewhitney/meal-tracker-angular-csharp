@@ -15,5 +15,7 @@ namespace MealTracker.API.Models
         public ICollection<Favorite> Favorites { get; set; }
 
         public ICollection<Meal> Meals { get; set; }
+
+        public Goal Goals { get; set; }
     }
 }
