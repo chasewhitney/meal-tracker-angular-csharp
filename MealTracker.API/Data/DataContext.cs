@@ -9,6 +9,7 @@ namespace MealTracker.API.Data
             public DbSet<Meal> Meals { get; set; }
             public DbSet<User> Users { get; set; }
             public DbSet<Favorite> Favorites { get; set; }
+            public DbSet<Goal> Goals { get; set; }
         
     }
 }

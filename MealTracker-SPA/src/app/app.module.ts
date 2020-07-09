@@ -14,7 +14,6 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { HistoryComponent } from './history/history.component';
 import { GoalsComponent } from './goals/goals.component';
-import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -27,7 +26,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       RegisterComponent,
       HistoryComponent,
       GoalsComponent,
-      MessagesComponent,
       DashboardComponent
    ],
    imports: [
