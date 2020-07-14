@@ -8,7 +8,7 @@ namespace MealTracker.API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<Goal, GoalForDisplayDto>();
+
         }
     }
 }
